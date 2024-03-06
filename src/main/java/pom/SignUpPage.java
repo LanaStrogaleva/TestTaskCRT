@@ -1,5 +1,6 @@
 package pom;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 public class SignUpPage {
@@ -20,27 +21,27 @@ public class SignUpPage {
     public String getSignUpHeaderText() {
         return driver.findElement(signUpHeader).getText();
     }
-
+    @Step("Ввести данные в поле Еmail: {email}")
     public SignUpPage inputЕmailField(String email) {
         driver.findElement(emailField).sendKeys(email);
         return this;
     }
-
+    @Step("Ввести данные в поле Password: {password}")
     public SignUpPage inputPasswordField(String password) {
         driver.findElement(passwordField).sendKeys(password);
         return this;
     }
-
+    @Step("Ввести данные в поле Name: {name}")
     public SignUpPage inputNameField(String name) {
         driver.findElement(passwordField).sendKeys(name);
         return this;
     }
-
+    @Step("Кликнуть по кнопке Sign Up")
     public SignUpPage clickSignUpButton() {
         driver.findElement(signUpButton).click();
         return this;
     }
-
+    @Step("Кликнуть по ссылке Sign Up в правом верхнем углу")
     public SignUpPage clickSignUpLink() {
         driver.findElement(signUpLink).click();
         return  this;
