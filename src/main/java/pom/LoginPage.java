@@ -1,5 +1,6 @@
 package pom;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -20,17 +21,17 @@ public class LoginPage {
     public String getLoginHeaderText() {
         return driver.findElement(loginHeader).getText();
     }
-
+    @Step("Ввести данные в поле Еmail: {email}")
     public LoginPage inputЕmailField(String email) {
         driver.findElement(emailField).sendKeys(email);
         return this;
     }
-
+    @Step("Ввести данные в поле Password: {password}")
     public LoginPage inputPasswordField(String password) {
         driver.findElement(passwordField).sendKeys(password);
         return this;
     }
-
+    @Step("Кликнуть по кнопке Login")
     public void clickLoginButton() {
         driver.findElement(loginButton).click();
     }

@@ -1,5 +1,6 @@
 import com.github.javafaker.Faker;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -47,6 +48,7 @@ public class LoginTest {
 
     @DisplayName("Переход на страницу авторизации по ссылке Login")
     @Test
+    @Story("Авторизация")
     public void switchToLoginPage() {
         String expected = "Login";
         LoginPage loginPage = new LoginPage(driver);
@@ -55,6 +57,7 @@ public class LoginTest {
 
     @DisplayName("Вход с существующими Email и Password")
     @Test
+    @Story("Авторизация")
     public void loginWithExistEmailAndPassword() {
         String expected = "Profile";
         LoginPage loginPage = new LoginPage(driver);
@@ -67,6 +70,7 @@ public class LoginTest {
 
     @DisplayName("Вход с незаполненными полями  Email и Password")
     @Test
+    @Story("Авторизация")
     public void loginWithEmptyEmailAndPassword() {
         String expected = "Profile";
         LoginPage loginPage = new LoginPage(driver);
@@ -77,6 +81,7 @@ public class LoginTest {
 
     @DisplayName("Вход с существующим Email и неверным Password")
     @Test
+    @Story("Авторизация")
     public void loginWithExistEmailAndInvalidPassword() {
         String expected = "Profile";
         String invalidPassword = password + "scs";
@@ -90,6 +95,7 @@ public class LoginTest {
 
     @DisplayName("Вход с существующим Email и пустым Password")
     @Test
+    @Story("Авторизация")
     public void loginWithExistEmailAndEmptyPassword() {
         String expected = "Profile";
         LoginPage loginPage = new LoginPage(driver);
@@ -101,6 +107,7 @@ public class LoginTest {
 
     @DisplayName("Вход с существующим Password и неверным Email")
     @Test
+    @Story("Авторизация")
     public void loginWithExistPasswordAndInvalidEmail() {
         String expected = "Profile";
         String invalidEmail = "scs" + email;
@@ -114,6 +121,7 @@ public class LoginTest {
 
     @DisplayName("Вход с существующим Password и пустым Email")
     @Test
+    @Story("Авторизация")
     public void loginWithExistPasswordAndEmptyEmail() {
         String expected = "Profile";
         LoginPage loginPage = new LoginPage(driver);
@@ -125,6 +133,7 @@ public class LoginTest {
 
     @DisplayName("Вход с несуществующими полями  Email и Password")
     @Test
+    @Story("Авторизация")
     public void loginWithNonExistEmailAndPassword() {
         String expected = "Profile";
         String invalidEmail = "scs" + email;

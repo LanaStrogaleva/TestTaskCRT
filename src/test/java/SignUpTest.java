@@ -1,5 +1,6 @@
 import com.github.javafaker.Faker;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -110,6 +111,7 @@ public class SignUpTest {
 
     @DisplayName("Переход на страницу регистрации по ссылке Sign Up")
     @Test
+    @Story("Регистрация")
     public void switchToSignUpPage() {
         String expected = "Sign Up";
         SignUpPage signUpPage = new SignUpPage(driver);
@@ -117,6 +119,7 @@ public class SignUpTest {
     }
     @DisplayName("Регистрация с  валидными Email и Password")
     @Test
+    @Story("Регистрация")
     public void registrationWithEmailAndPassword() {
         Faker faker = new Faker();
         String expected = "Login";
@@ -132,6 +135,7 @@ public class SignUpTest {
     }
     @DisplayName("Регистрация с валидными Email, Password  и Name")
     @Test
+    @Story("Регистрация")
     public void registrationWithEmailPasswordName() {
         Faker faker = new Faker();
         String expected = "Login";
@@ -147,6 +151,7 @@ public class SignUpTest {
     }
     @DisplayName("Регистрация с незаполненными полями  Email и Password")
     @Test
+    @Story("Регистрация")
     public void registrationWithoutEmailAndPassword() {
         String expected = "Login";
         SignUpPage signUpPage = new SignUpPage(driver);
@@ -158,6 +163,7 @@ public class SignUpTest {
     }
     @DisplayName("Регистрация с незаполненным полем  Email")
     @Test
+    @Story("Регистрация")
     public void registrationWithoutEmail() {
         Faker faker = new Faker();
         String expected = "Login";
@@ -172,6 +178,7 @@ public class SignUpTest {
     }
     @DisplayName("Регистрация с незаполненным полем  Password ")
     @Test
+    @Story("Регистрация")
     public void registrationWithoutPassword() {
         Faker faker = new Faker();
         String expected = "Login";
@@ -186,6 +193,7 @@ public class SignUpTest {
     }
     @DisplayName("Регистрация с существующим Email ")
     @Test
+    @Story("Регистрация")
     public void registrationWithExistEmail() {
         Faker faker = new Faker();
 
@@ -207,6 +215,7 @@ public class SignUpTest {
     }
     @DisplayName("Позитивные проверки. Валидация поля Email")
     @ParameterizedTest
+    @Story("Регистрация")
     @MethodSource("positiveEmailData")
     public void checkPositiveEmailValidation(String validEmail, String description) {
         String expected = "Login";
@@ -222,6 +231,7 @@ public class SignUpTest {
     }
     @DisplayName("Негативные проверки. Валидация поля Email")
     @ParameterizedTest
+    @Story("Регистрация")
     @MethodSource("negativeEmailData")
     public void checkNegativeEmailValidation(String invalidEmail, String description) {
         String expected = "Login";
@@ -239,6 +249,7 @@ public class SignUpTest {
 
     @DisplayName("Позитивные проверки. Валидация поля Password")
     @ParameterizedTest
+    @Story("Регистрация")
     @MethodSource("positivePasswordData")
     public void checkPositivePasswordValidation(String validPassword, String description) {
         Faker faker = new Faker();
